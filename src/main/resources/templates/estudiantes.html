@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Lista de Estudiantes</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</head>
+<body>
+<div class="container mt-4">
+    <h1 th:style="'font-family: Algeria; font-weight: bold; text-align: center;'">Lista de Estudiantes</h1>
+    <a th:href="@{/estudiantes/nuevo}" class="btn btn-primary mb-3" th:style="'font-family: Algeria;'">Agregar Nuevo Estudiante</a>
+    <a th:href="@{../}" class="btn btn-secondary mb-3" th:style="'font-family: Algeria;'">Regresar</a>
+    <table class="table  table-sm table-striped table-bordered">
+        <thead class="thead-dark">
+        <tr th:style="'font-family: Algeria; font-weight: bold; text-align: center;'">
+            <th>ID</th>
+            <th>Nombre</th>
+            <th>Apellido</th>
+            <th>Fecha de Nacimiento</th>
+            <th>Email</th>
+            <th>Acciones</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="estudiante : ${estudiantes}" th:style="'font-family: Algeria; font-weight: bold; text-align: center;'">
+            <td th:text="${estudiante.estudiantes_id}">1</td>
+            <td th:text="${estudiante.nombre}">John</td>
+            <td th:text="${estudiante.apellido}">Doe</td>
+            <td th:text="${estudiante.fecha_nacimiento}">2000-01-01</td>
+            <td th:text="${estudiante.email}">john.doe@example.com</td>
+            <td>
+                <a th:href="@{/estudiantes/editar/{id}(id=${estudiante.estudiantes_id})}" class="btn btn-warning btn-sm">Editar</a>
+                <a th:href="@{/estudiantes/eliminar/{id}(id=${estudiante.estudiantes_id})}" class="btn btn-danger btn-sm">Eliminar</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Inicio</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Algeria';
+            background-color: #f8f9fa;
+        }
+        .container {
+            margin-top: 50px;
+        }
+        .btn-custom {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            width: 100%;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            transition: background-color 0.3s, box-shadow 0.3s;
+        }
+        .btn-custom:hover {
+            background-color: #0056b3;
+            color: white;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        .btn-custom i {
+            margin-right: 8px;
+        }
+        .heading {
+            text-align: center;
+            margin-bottom: 30px;
+            font-weight: bold;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1 class="heading" th:style="'font-family: Algeria;'">Página Principal</h1>
+    <div class="row">
+        <div class="col-md-4 mb-3">
+            <a href="/estudiantes" class="btn btn-custom">
+                <i class="fas fa-user-graduate"></i> Estudiantes
+            </a>
+        </div>
+        <div class="col-md-4 mb-3">
+            <a href="/cursos" class="btn btn-custom">
+                <i class="fas fa-book"></i> Cursos
+            </a>
+        </div>
+        <div class="col-md-4 mb-3">
+            <a href="/profesores" class="btn btn-custom">
+                <i class="fas fa-chalkboard-teacher"></i> Profesores
+            </a>
+        </div>
+        <div class="col-md-4 mb-3">
+            <a href="/matriculas" class="btn btn-custom">
+                <i class="fas fa-clipboard-list"></i> Matrículas
+            </a>
+        </div>
+        <div class="col-md-4 mb-3">
+            <a href="/aulas" class="btn btn-custom">
+                <i class="fas fa-school"></i> Aulas
+            </a>
+        </div>
+    </div>
+</div>
+</body>
+</html>
