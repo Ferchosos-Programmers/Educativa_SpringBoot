@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Crear Aula</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</head>
+<body>
+<div class="container mt-4">
+    <h1 class="text-center mb-4" style="font-family: Algeria; font-weight: bold;">Crear Nueva Aula</h1>
+    <form action="#" th:action="@{/aulas}" th:object="${aulas}" method="post">
+        <div class="form-group">
+            <label for="numero_aula">Número de Aula:</label>
+            <input type="number" id="numero_aula" class="form-control" th:field="*{numero_aula}" required="required"/>
+        </div>
+        <div class="form-group">
+            <label for="capacidad">Capacidad:</label>
+            <input type="number" id="capacidad" class="form-control" th:field="*{capacidad}" required="required"/>
+        </div>
+        <div class="form-group">
+            <label for="cursos">Curso:</label>
+            <select id="cursos" class="form-control" th:field="*{cursos}">
+                <option th:each="curso : ${cursos}" th:value="${curso.cursos_id}" th:text="${curso.nombre}"></option>
+            </select>
+        </div>
+        <button type="submit" class="btn btn-primary" th:style="'font-family: Algeria;'">Guardar</button>
+        <a th:href="@{/aulas}" class="btn btn-secondary" th:style="'font-family: Algeria;'">Volver a la lista</a>
+    </form>
+</div>
+</body>
+</html>

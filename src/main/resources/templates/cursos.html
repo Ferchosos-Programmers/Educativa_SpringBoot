@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Lista de Cursos</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</head>
+<body>
+<div class="container mt-4">
+    <h1 th:style="'font-family: Algeria; font-weight: bold; text-align: center;'">Lista de Cursos</h1>
+    <a th:href="@{/cursos/nuevo}" class="btn btn-primary mb-3" th:style="'font-family: Algeria;'">Agregar Nuevo Curso </a>
+    <a th:href="@{../}" class="btn btn-secondary mb-3" th:style="'font-family: Algeria;'">Regresar</a>
+    <table class="table  table-sm table-striped table-bordered">
+        <thead class="thead-dark">
+        <tr th:style="'font-family: Algeria; font-weight: bold; text-align: center;'">
+            <th>ID</th>
+            <th>Nombre</th>
+            <th>Descripcion</th>
+            <th>Creditos
+            <th>Acciones</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="curso : ${cursos}" th:style="'font-family: Algeria; text-align: center;'">
+            <td th:text="${curso.cursos_id}">1</td>
+            <td th:text="${curso.nombre}">John</td>
+            <td th:text="${curso.descripcion}">Doe</td>
+            <td th:text="${curso.creditos}">2000-01-01</td>
+            <td>
+                <a th:href="@{/cursos/editar/{id}(id=${curso.cursos_id})}" class="btn btn-warning btn-sm">Editar</a>
+                <a th:href="@{/cursos/eliminar/{id}(id=${curso.cursos_id})}" class="btn btn-danger btn-sm">Eliminar</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>

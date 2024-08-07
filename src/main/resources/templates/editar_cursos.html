@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Editar Curso</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+        }
+        .container {
+            max-width: 600px;
+            margin-top: 30px;
+        }
+        .form-label {
+            font-family: 'Algeria';
+        }
+        .btn-custom {
+            background-color: #007bff;
+            color: white;
+            border: none;
+        }
+        .btn-custom:hover {
+            background-color: #0056b3;
+            color: white;
+        }
+        .btn-secondary-custom {
+            background-color: #6c757d;
+            color: white;
+            border: none;
+        }
+        .btn-secondary-custom:hover {
+            background-color: #5a6268;
+            color: white;
+        }
+        .heading {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1 class="heading" th:style="'font-family: Algeria;'">Editar Curso</h1>
+    <form th:action="@{/cursos/actualizar/{id}(id=${cursos.cursos_id})}" th:object="${cursos}" method="post">
+        <div class="form-group">
+            <label for="nombre" class="form-label" th:style="'font-family: Algeria;'" >Nombre:</label>
+            <input type="text" id="nombre" th:field="*{nombre}" class="form-control" th:style="'font-family: Algeria;'" required/>
+        </div>
+
+        <div class="form-group">
+            <label for="descripcion" class="form-label" th:style="'font-family: Algeria;'">Descripcion:</label>
+            <input type="text" id="descripcion" th:field="*{descripcion}" class="form-control" th:style="'font-family: Algeria;'" required/>
+        </div>
+
+        <div class="form-group">
+            <label for="creditos" class="form-label" th:style="'font-family: Algeria;'">Creditos:</label>
+            <input type="number" id="creditos" th:field="*{creditos}" th:style="'font-family: Algeria;'" class="form-control" required/>
+        </div>
+
+        <button type="submit" class="btn btn-custom" th:style="'font-family: Algeria;'">Actualizar</button>
+        <a th:href="@{/cursos}" class="btn btn-secondary-custom" th:style="'font-family: Algeria;'">Volver a la lista</a>
+    </form>
+</div>
+</body>
+</html>

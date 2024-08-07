@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Lista de Aulas</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</head>
+<body>
+<div class="container mt-4">
+    <h1 class="text-center" style="font-family: Algeria; font-weight: bold;">Lista de Aulas</h1>
+    <a href="/aulas/nuevo" class="btn btn-primary mb-3" style="font-family: Algeria;">Crear Nueva Aula</a>
+    <a href="../" class="btn btn-secondary mb-3" style="font-family: Algeria;">Regresar</a>
+    <table class="table table-sm table-striped table-bordered">
+        <thead class="thead-dark">
+        <tr style="font-family: Algeria; font-weight: bold; text-align: center;">
+            <th>ID</th>
+            <th>Número de Aula</th>
+            <th>Capacidad</th>
+            <th>Curso</th>
+            <th>Acciones</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="aula : ${aulas}" style="font-family: Algeria; text-align: center;">
+            <td th:text="${aula.aulas_id}"></td>
+            <td th:text="${aula.numero_aula}"></td>
+            <td th:text="${aula.capacidad}"></td>
+            <td th:text="${aula.cursos.nombre}"></td>
+            <td>
+                <a th:href="@{/aulas/editar/{id}(id=${aula.aulas_id})}" class="btn btn-warning btn-sm">Editar</a>
+                <a th:href="@{/aulas/eliminar/{id}(id=${aula.aulas_id})}" class="btn btn-danger btn-sm">Eliminar</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>
